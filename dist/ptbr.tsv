@@ -11881,7 +11881,7 @@ MainMenu_Survival_Mode	Modo Sobrevivência
 MainMenu_Survival_Mode_Confirm	Alerta de Prioridade Vault-Tec! Detectamos que você optou pelo nosso experimento social mais rigoroso e perigoso até agora - o Modo Sobrevivência! No Modo Sobrevivência, seu Vault vai enfrentar ameaças mais letais, a necessidade de recursos será maior, e você não vai poder reviver Moradores mortos!
 MainMenu_Survival_Mode_Confirm_Part02	Além disso, uma vez que você seguir por esse caminho, não há volta! Como não há tempo pra realizar uma avaliação psicológica completa, a Vault-Tec terá que presumir que você está no total controle de suas faculdades e entende plenamente as consequências dessa escolha. Boa sorte, Supervisor!
 MainMenu_TapToStart	ENTRAR NO VAULT {0}
-MainMenu_WelcomeTo	BEM-VINDO AO (UPDATE OK ✓)
+MainMenu_WelcomeTo	BEM-VINDO AO
 MainMenu_Xbox_SignIn	Por favor, faça login.
 MainMenu_Xbox_SignInError	Evento de login não tratado
 MainMenu_Xbox_SigningIn	Fazendo seu login...

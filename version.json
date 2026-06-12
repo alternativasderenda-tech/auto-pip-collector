@@ -12,7 +12,7 @@
       "name": "ptbr.tsv",
       "dest": "config",
       "admin": false,
-      "sha256": "f9a3784968830f85b679545a86633ba5a4af6f4abcd90a919b96a60e75afa3c9",
+      "sha256": "caba28f0230c45e8d717bed92b7bc87eb2ec751d4d7a2c88fd2246fbdba4b2ed",
       "url": "https://raw.githubusercontent.com/alternativasderenda-tech/auto-pip-collector/main/dist/ptbr.tsv"
     },
     {

@@ -14,6 +14,13 @@
       "admin": false,
       "sha256": "caba28f0230c45e8d717bed92b7bc87eb2ec751d4d7a2c88fd2246fbdba4b2ed",
       "url": "https://raw.githubusercontent.com/alternativasderenda-tech/auto-pip-collector/main/dist/ptbr.tsv"
+    },
+    {
+      "name": "AutoPipCollector.exe",
+      "dest": "exe",
+      "admin": false,
+      "sha256": "99031e4288e45fe690a482b8929aa2a6f8e3eebb01c82795d38d27d4d4034e27",
+      "url": "https://github.com/alternativasderenda-tech/auto-pip-collector/releases/latest/download/AutoPipCollector.exe"
     }
   ]
 }

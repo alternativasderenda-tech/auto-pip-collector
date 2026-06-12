@@ -19,7 +19,7 @@
       "name": "AutoPipCollector.exe",
       "dest": "exe",
       "admin": false,
-      "sha256": "21adbc6f30b049ba9ff5cd5ee1db68b6a173e4ca4492981b0835713e3acc8492",
+      "sha256": "931f283632fcde1ae57936e11e45e46d8654988d2883bd3ab98868d64dff629a",
       "url": "https://github.com/alternativasderenda-tech/auto-pip-collector/releases/latest/download/AutoPipCollector.exe"
     }
   ]

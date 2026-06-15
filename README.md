@@ -1,5 +1,9 @@
 # 🎮 Auto-Pip Collector
 
+[![Downloads](https://img.shields.io/github/downloads/alternativasderenda-tech/auto-pip-collector/total?label=downloads&color=46f08a)](https://github.com/alternativasderenda-tech/auto-pip-collector/releases)
+[![Versão](https://img.shields.io/github/v/release/alternativasderenda-tech/auto-pip-collector?label=vers%C3%A3o&color=46f08a)](https://github.com/alternativasderenda-tech/auto-pip-collector/releases/latest)
+[![Plataforma](https://img.shields.io/badge/plataforma-Windows%20%C2%B7%20Steam-46f08a)](https://github.com/alternativasderenda-tech/auto-pip-collector/releases/latest)
+
 **Coletor automático + tradução PT-BR completa para Fallout Shelter (Steam).**
 
 Um mod que **coleta sozinho** os recursos do seu Vault — energia, comida, água, tampinhas, stimpaks, RadAway, level-ups, partos, treinos, o Estranho Misterioso e o morador do rádio — e ainda deixa **o jogo inteiro em português**.

@@ -1,5 +1,5 @@
 {
-  "mod_version": "v2.6.3",
+  "mod_version": "v2.6.4",
   "files": [
     {
       "name": "ColetorVault.dll",
@@ -19,7 +19,7 @@
       "name": "AutoPipCollector.exe",
       "dest": "exe",
       "admin": false,
-      "sha256": "d7923dd436f695e43683bf251bbed62a1483316f16f2d6cd5ac5f6d2f86791b1",
+      "sha256": "cdedb8f5c3c1a55738ca746aed34500a35dc9ee1853e51f5b2ec63efeb2f4933",
       "url": "https://github.com/alternativasderenda-tech/auto-pip-collector/releases/latest/download/AutoPipCollector.exe"
     }
   ]

@@ -49,10 +49,9 @@ jobs:
       - name: Atualizar version.json (hashes)
         shell: pwsh
         run: |
-          function H($p) { (Get-FileHash $p -Algorithm SHA256).Hash.ToLower() }
-          $exe = H "publish/AutoPipCollector.exe"
-          $dll = H "dist/ColetorVault.dll"
-          $tsv = H "dist/ptbr.tsv"
+          $exe = (Get-FileHash "publish/AutoPipCollector.exe" -Algorithm SHA256).Hash.ToLower()
+          $dll = (Get-FileHash "dist/ColetorVault.dll" -Algorithm SHA256).Hash.ToLower()
+          $tsv = (Get-FileHash "dist/ptbr.tsv" -Algorithm SHA256).Hash.ToLower()
           $j = Get-Content version.json -Raw | ConvertFrom-Json
           foreach ($f in $j.files) {
             if     ($f.dest -eq 'exe')              { $f.sha256 = $exe }

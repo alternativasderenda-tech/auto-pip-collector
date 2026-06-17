@@ -1,0 +1,58 @@
+================================================================
+  AUTO-PIP COLLECTOR  -  coletor automatico do Fallout Shelter
+================================================================
+
+O QUE E
+  Um programinha que coleta sozinho no Fallout Shelter (Steam):
+  energia, comida, agua, nuka, stimpak, radaway, level-up dos
+  moradores, treinamento, parto dos bebes, o Estranho Misterioso
+  e ate o novo morador do radio. Tudo automatico.
+
+  BONUS: o jogo inteiro traduzido para PORTUGUES (quests,
+  dialogos, menus, itens). Liga/desliga no painel na chavinha
+  "Jogo em Portugues" (vem ligado).
+
+----------------------------------------------------------------
+  COMO INSTALAR (so uma vez)
+----------------------------------------------------------------
+  1) Feche o Fallout Shelter, se estiver aberto.
+  2) De dois cliques em:  INSTALAR.bat
+  3) Vai aparecer um aviso do Windows pedindo permissao de
+     administrador - clique SIM.
+  4) Ele acha o jogo sozinho, instala tudo e cria um atalho
+     "Auto-Pip Collector" na area de trabalho.
+     (Se nao achar o jogo, ele pede pra voce apontar o
+      FalloutShelter.exe - so procurar na pasta da Steam.)
+
+----------------------------------------------------------------
+  COMO USAR (no dia a dia)
+----------------------------------------------------------------
+  1) Abra o Fallout Shelter normalmente pela Steam.
+  2) Abra o atalho "Auto-Pip Collector" na area de trabalho.
+       - Ligue/desligue o que quer coletar nas chavinhas.
+       - Veja a coleta acontecendo ao vivo na lista de baixo.
+  3) No jogo, a tecla F8 pausa/retoma a coleta.
+
+  Pode fechar o programa que o jogo CONTINUA coletando.
+  O programa serve so pra configurar e acompanhar.
+
+----------------------------------------------------------------
+  OBSERVACOES
+----------------------------------------------------------------
+  - Single-player offline, sem anti-cheat. Uso pessoal.
+  - Precisa do Fallout Shelter da STEAM (versao de PC).
+  - Na 1a vez o programa pode demorar uns segundos pra abrir.
+  - Se o Windows mostrar um aviso azul "Windows protegeu seu PC"
+    ao abrir o programa, clique em "Mais informacoes" e depois
+    "Executar assim mesmo" (e so porque o programa nao tem
+    assinatura paga de empresa).
+
+----------------------------------------------------------------
+  COMO DESINSTALAR
+----------------------------------------------------------------
+  - Apague na pasta do jogo:  a pasta BepInEx, e os arquivos
+    winhttp.dll, doorstop_config.ini, .doorstop_version,
+    changelog.txt. O jogo volta ao normal.
+  - Apague o atalho da area de trabalho e a pasta
+    %LOCALAPPDATA%\AutoPipCollector
+================================================================

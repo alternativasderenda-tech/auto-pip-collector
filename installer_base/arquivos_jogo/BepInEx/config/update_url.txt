@@ -1,0 +1,1 @@
+https://raw.githubusercontent.com/alternativasderenda-tech/auto-pip-collector/main/version.json

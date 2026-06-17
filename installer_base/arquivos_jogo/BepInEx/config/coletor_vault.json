@@ -1,0 +1,27 @@
+{
+  "ativo": true,
+  "recursos": {
+    "energia": true,
+    "comida": true,
+    "agua": true,
+    "nuka": true,
+    "stimpak": true,
+    "radaway": true
+  },
+  "dwellers": {
+    "levelup": true,
+    "treinamento": true,
+    "exploradores": true,
+    "gravidas": true,
+    "radio": true
+  },
+  "estranho": true,
+  "fabrica_quantum": false,
+  "idioma": "ptbr",
+  "parametros": {
+    "intervalo_ms": 800,
+    "confianca": 0.85,
+    "hotkey_pausa": "F8"
+  },
+  "passe_premium": false
+}

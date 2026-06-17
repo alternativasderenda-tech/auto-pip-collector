@@ -1,0 +1,90 @@
+name: Release
+
+# Dispara quando uma tag "v*" e enviada (ex.: git push origin v2.6.4).
+# Compila o exe no servidor do GitHub, monta o instalador, atualiza o version.json
+# e cria o Release com o exe + instalador anexados.
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout (branch main)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Compilar o app (exe self-contained)
+        shell: pwsh
+        run: |
+          dotnet publish src/painel_app/PainelApp.csproj -c Release -r win-x64 `
+            --self-contained true -p:PublishSingleFile=true `
+            -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true `
+            -o publish
+          if (-not (Test-Path "publish/AutoPipCollector.exe")) { throw "exe nao foi gerado" }
+
+      - name: Montar o instalador (.zip)
+        shell: pwsh
+        run: |
+          $stage = "stage"
+          Copy-Item installer_base $stage -Recurse
+          New-Item -ItemType Directory -Force "$stage/arquivos_jogo/BepInEx/plugins" | Out-Null
+          Copy-Item dist/ColetorVault.dll "$stage/arquivos_jogo/BepInEx/plugins/ColetorVault.dll" -Force
+          Copy-Item dist/ptbr.tsv         "$stage/arquivos_jogo/BepInEx/config/ptbr.tsv" -Force
+          Copy-Item publish/AutoPipCollector.exe "$stage/AutoPipCollector.exe" -Force
+          if (Test-Path "Auto-Pip-Collector_INSTALADOR.zip") { Remove-Item "Auto-Pip-Collector_INSTALADOR.zip" -Force }
+          Compress-Archive -Path "$stage/*" -DestinationPath "Auto-Pip-Collector_INSTALADOR.zip"
+
+      - name: Atualizar version.json (hashes)
+        shell: pwsh
+        run: |
+          function H($p) { (Get-FileHash $p -Algorithm SHA256).Hash.ToLower() }
+          $exe = H "publish/AutoPipCollector.exe"
+          $dll = H "dist/ColetorVault.dll"
+          $tsv = H "dist/ptbr.tsv"
+          $j = Get-Content version.json -Raw | ConvertFrom-Json
+          foreach ($f in $j.files) {
+            if     ($f.dest -eq 'exe')              { $f.sha256 = $exe }
+            elseif ($f.name -eq 'ColetorVault.dll') { $f.sha256 = $dll }
+            elseif ($f.name -eq 'ptbr.tsv')         { $f.sha256 = $tsv }
+          }
+          $j.mod_version = "${{ github.ref_name }}"
+          ($j | ConvertTo-Json -Depth 10) | Set-Content version.json -Encoding utf8
+          Get-Content version.json
+
+      - name: Commitar o version.json no main
+        shell: pwsh
+        run: |
+          git config user.name  "alternativasderenda-tech"
+          git config user.email "267496335+alternativasderenda-tech@users.noreply.github.com"
+          git add version.json
+          git commit -m "version.json ${{ github.ref_name }} [skip ci]"
+          git push origin HEAD:main
+
+      - name: Criar o Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          make_latest: true
+          body: |
+            Release automatico do Auto-Pip Collector ${{ github.ref_name }}.
+
+            - **Auto-Pip-Collector_INSTALADOR.zip** - instalador completo (primeira instalacao).
+            - **AutoPipCollector.exe** - usado pelo auto-update do app.
+
+            Quem ja tem instalado: o app/mod/traducao se atualizam sozinhos.
+          files: |
+            publish/AutoPipCollector.exe
+            Auto-Pip-Collector_INSTALADOR.zip

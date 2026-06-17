@@ -44,7 +44,7 @@ namespace AutoPipCollector
 
     public class MainForm : Form
     {
-        private const string VERSION = "2.6.3";   // app + mod 2.6.3 (passe premium)
+        private const string VERSION = "2.6.4";   // app (timeout do download p/ 5min - exe de 66MB)
 
         private readonly WebView2 web = new WebView2();
         private readonly string gameDir;
@@ -424,7 +424,7 @@ namespace AutoPipCollector
         private static HttpClient NewHttp()
         {
             HttpClient c = new HttpClient();
-            c.Timeout = TimeSpan.FromSeconds(10);
+            c.Timeout = TimeSpan.FromSeconds(300);   // 5min: o exe tem 66MB e a rede pode ser lenta
             c.DefaultRequestHeaders.Add("User-Agent", "AutoPipCollector");
             return c;
         }

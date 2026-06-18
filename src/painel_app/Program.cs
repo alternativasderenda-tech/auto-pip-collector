@@ -44,7 +44,7 @@ namespace AutoPipCollector
 
     public class MainForm : Form
     {
-        private const string VERSION = "2.6.4";   // app (timeout do download p/ 5min - exe de 66MB)
+        private const string VERSION = "2.6.5";   // app (coletar armarios + corpos de inimigos)
 
         private readonly WebView2 web = new WebView2();
         private readonly string gameDir;

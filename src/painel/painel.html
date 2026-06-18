@@ -246,6 +246,24 @@
       <div class="radarnote" style="margin-top:8px">▸ <b>avançado:</b> numa <b>temporada ativa</b>, libera a <b>trilha premium</b> do passe. Aí você resgata os itens premium <b>a cada nível</b> que alcançar, na tela do passe (precisa estar no vault da temporada).</div>
     </div>
 
+    <div class="special" id="armariosBox" style="border-color:var(--vault);background:rgba(255,210,30,.05)">
+      <div class="head">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--vault)"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></svg>
+        <h2 style="color:var(--vault)">COLETAR ARMÁRIOS (MISSÕES)</h2>
+        <button class="sw" id="armariosSw" role="switch" aria-checked="false" aria-label="Coletar armários" style="margin-left:auto"><span class="on">ON</span><span class="off">OFF</span></button>
+      </div>
+      <div class="radarnote" style="margin-top:8px">▸ <b>avançado:</b> nas <b>missões</b>, pega sozinho o <b>loot dos armários/contêineres</b> das salas.</div>
+    </div>
+
+    <div class="special" id="corposBox" style="border-color:var(--vault);background:rgba(255,210,30,.05)">
+      <div class="head">
+        <svg class="ico" viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" style="color:var(--vault)"><path d="M12 2C7.6 2 4 5.6 4 10c0 2.4 1.1 4 2.5 5.2V18a1 1 0 0 0 1 1H9v-2h2v2h2v-2h2v2h1.5a1 1 0 0 0 1-1v-2.8C18.9 14 20 12.4 20 10c0-4.4-3.6-8-8-8zM9 12a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm6 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
+        <h2 style="color:var(--vault)">COLETAR CORPOS (INIMIGOS)</h2>
+        <button class="sw" id="corposSw" role="switch" aria-checked="false" aria-label="Coletar corpos" style="margin-left:auto"><span class="on">ON</span><span class="off">OFF</span></button>
+      </div>
+      <div class="radarnote" style="margin-top:8px">▸ <b>avançado:</b> pega o <b>loot dos corpos de inimigos</b> da invasão da base. <b>Só inimigos</b> — nunca sobreviventes mortos.</div>
+    </div>
+
     <div class="special" id="specialBox">
       <div class="head">
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor" style="color:var(--amber)"><path d="m12 2 2.4 6.9H22l-6 4.4 2.3 7-6.3-4.6L5.7 20.3 8 13.3 2 8.9h7.6z"/></svg>
@@ -301,6 +319,8 @@
     estranho:true,
     fabrica_quantum:false,
     passe_premium:false,
+    armarios:false,
+    corpos:false,
     idioma:"en",
     parametros:{ intervalo_ms:800, confianca:0.85, hotkey_pausa:"F8" }
   };
@@ -318,7 +338,7 @@
   <span class="k">"ativo"</span>: ${v(c.ativo)},
   <span class="k">"recursos"</span>: { <span class="k">"energia"</span>:${v(c.recursos.energia)}, <span class="k">"comida"</span>:${v(c.recursos.comida)}, <span class="k">"agua"</span>:${v(c.recursos.agua)}, <span class="k">"nuka"</span>:${v(c.recursos.nuka)}, <span class="k">"stimpak"</span>:${v(c.recursos.stimpak)}, <span class="k">"radaway"</span>:${v(c.recursos.radaway)} },
   <span class="k">"dwellers"</span>: { <span class="k">"levelup"</span>:${v(c.dwellers.levelup)}, <span class="k">"treinamento"</span>:${v(c.dwellers.treinamento)}, <span class="k">"exploradores"</span>:${v(c.dwellers.exploradores)}, <span class="k">"gravidas"</span>:${v(c.dwellers.gravidas)}, <span class="k">"radio"</span>:${v(c.dwellers.radio)} },
-  <span class="k">"estranho"</span>: ${v(c.estranho)}, <span class="k">"fabrica_quantum"</span>:${v(c.fabrica_quantum)}, <span class="k">"passe_premium"</span>:${v(c.passe_premium)}, <span class="k">"idioma"</span>:<span class="b1">"${c.idioma}"</span>,
+  <span class="k">"estranho"</span>: ${v(c.estranho)}, <span class="k">"fabrica_quantum"</span>:${v(c.fabrica_quantum)}, <span class="k">"passe_premium"</span>:${v(c.passe_premium)}, <span class="k">"armarios"</span>:${v(c.armarios)}, <span class="k">"corpos"</span>:${v(c.corpos)}, <span class="k">"idioma"</span>:<span class="b1">"${c.idioma}"</span>,
   <span class="k">"parametros"</span>: { <span class="k">"intervalo_ms"</span>:${c.parametros.intervalo_ms}, <span class="k">"confianca"</span>:${c.parametros.confianca}, <span class="k">"hotkey_pausa"</span>:<span class="b1">"${c.parametros.hotkey_pausa}"</span> }
 }`;
   }
@@ -358,6 +378,8 @@
     setSw($('#strangerSw'), !!config.estranho);
     setSw($('#quantumSw'), !!config.fabrica_quantum);
     setSw($('#passeSw'), !!config.passe_premium);
+    setSw($('#armariosSw'), !!config.armarios);
+    setSw($('#corposSw'), !!config.corpos);
     setSw($('#langSw'), config.idioma==='ptbr');
     statusBox.classList.toggle('off', !config.ativo);
     statusTxt.textContent=config.ativo?'ATIVO':'PAUSADO';
@@ -374,6 +396,8 @@
   $('#strangerSw').addEventListener('click',()=>{ config.estranho=toggle($('#strangerSw')); specialBox.classList.toggle('muted',!config.estranho); render(); save(); });
   $('#quantumSw').addEventListener('click',()=>{ config.fabrica_quantum=toggle($('#quantumSw')); render(); save(); });
   $('#passeSw').addEventListener('click',()=>{ config.passe_premium=toggle($('#passeSw')); render(); save(); });
+  $('#armariosSw').addEventListener('click',()=>{ config.armarios=toggle($('#armariosSw')); render(); save(); });
+  $('#corposSw').addEventListener('click',()=>{ config.corpos=toggle($('#corposSw')); render(); save(); });
   $('#langSw').addEventListener('click',()=>{ config.idioma = toggle($('#langSw')) ? 'ptbr' : 'en'; render(); save(); });
   $('#master').addEventListener('click',()=>{
     config.ativo=toggle($('#master')); statusBox.classList.toggle('off',!config.ativo);

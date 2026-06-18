@@ -44,7 +44,7 @@ namespace AutoPipCollector
 
     public class MainForm : Form
     {
-        private const string VERSION = "2.6.8";   // corpos de inimigos em MISSOES (Fighter.OnCollect)
+        private const string VERSION = "2.6.9";   // corpos de inimigos em MISSOES (Fighter.OnCollect)
 
         private readonly WebView2 web = new WebView2();
         private readonly string gameDir;
@@ -343,6 +343,8 @@ namespace AutoPipCollector
             if (line.Contains("Parto")) return "\U0001F37C  Bebê coletado";
             if (line.Contains("Level-up")) return "⬆️  Level-up coletado";
             if (line.Contains("Treinamento")) return "\U0001F3CB️  Treino concluído";
+            if (line.Contains("Armario")) return "\U0001F4E6  Armário de missão coletado";
+            if (line.Contains("Corpo")) return "\U0001F480  Corpo de inimigo coletado";
             // recursos (Quantum antes de Nuka, e RadAway antes de Radio, p/ nao confundir)
             if (line.Contains("Quantum")) return "⭐  Nuka-Cola QUANTUM coletado!";
             if (line.Contains("RadAway")) return "☢️  RadAway coletado";

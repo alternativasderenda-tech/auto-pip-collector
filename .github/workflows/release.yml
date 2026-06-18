@@ -15,10 +15,10 @@ jobs:
   release:
     runs-on: windows-latest
     steps:
-      - name: Checkout (branch main)
+      - name: Checkout (commit da tag)
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.ref }}
 
       - name: Setup .NET 8
         uses: actions/setup-dotnet@v4
@@ -67,9 +67,11 @@ jobs:
         run: |
           git config user.name  "alternativasderenda-tech"
           git config user.email "267496335+alternativasderenda-tech@users.noreply.github.com"
+          git fetch origin main
+          git checkout -B main origin/main
           git add version.json
           git commit -m "version.json ${{ github.ref_name }} [skip ci]"
-          git push origin HEAD:main
+          git push origin main
 
       - name: Criar o Release
         uses: softprops/action-gh-release@v2

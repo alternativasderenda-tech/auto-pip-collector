@@ -44,7 +44,7 @@ namespace AutoPipCollector
 
     public class MainForm : Form
     {
-        private const string VERSION = "2.6.9";   // corpos de inimigos em MISSOES (Fighter.OnCollect)
+        private const string VERSION = "2.6.10";   // corpos de inimigos em MISSOES (Fighter.OnCollect)
 
         private readonly WebView2 web = new WebView2();
         private readonly string gameDir;
@@ -499,7 +499,9 @@ namespace AutoPipCollector
             string url = ManifestUrl(gameDir);
             if (url.Contains("SEU_USUARIO")) return null;   // ainda nao configurado: nao faz nada
 
-            string json = await http.GetStringAsync(url);
+            // fura o cache CDN do raw.githubusercontent (~5min) p/ ver o version.json recem-publicado
+            string fetchUrl = url + (url.Contains("?") ? "&" : "?") + "cb=" + DateTime.UtcNow.Ticks;
+            string json = await http.GetStringAsync(fetchUrl);
             using JsonDocument doc = JsonDocument.Parse(json);
             JsonElement root = doc.RootElement;
 

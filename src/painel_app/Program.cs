@@ -44,7 +44,7 @@ namespace AutoPipCollector
 
     public class MainForm : Form
     {
-        private const string VERSION = "2.6.18";   // corpos de inimigos em MISSOES (Fighter.OnCollect)
+        private const string VERSION = "2.6.19";   // corpos de inimigos em MISSOES (Fighter.OnCollect)
 
         private readonly WebView2 web = new WebView2();
         private readonly string gameDir;
@@ -347,7 +347,8 @@ namespace AutoPipCollector
             if (line.Contains("Corpo")) return "\U0001F480  Corpo de inimigo coletado";
             if (line.Contains("dropado")) return "\U0001F381  Item de inimigo coletado";
             if (line.Contains("Esquema")) return "\U0001F4DC  Esquema de inimigo coletado";
-            if (line.Contains("usado")) return "\U0001F48A  Stimpak usado (morador a 50%)";   // antes da regra 'Stimpak'
+            if (line.Contains("RadAway usado")) return "☢️  RadAway usado (radiação a 50%)";   // antes da regra 'RadAway'
+            if (line.Contains("Stimpak usado")) return "\U0001F48A  Stimpak usado (morador a 50%)";      // antes da regra 'Stimpak'
             // recursos (Quantum antes de Nuka, e RadAway antes de Radio, p/ nao confundir)
             if (line.Contains("Quantum")) return "⭐  Nuka-Cola QUANTUM coletado!";
             if (line.Contains("RadAway")) return "☢️  RadAway coletado";

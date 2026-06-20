@@ -44,7 +44,7 @@ namespace AutoPipCollector
 
     public class MainForm : Form
     {
-        private const string VERSION = "2.6.16";   // corpos de inimigos em MISSOES (Fighter.OnCollect)
+        private const string VERSION = "2.6.17";   // corpos de inimigos em MISSOES (Fighter.OnCollect)
 
         private readonly WebView2 web = new WebView2();
         private readonly string gameDir;

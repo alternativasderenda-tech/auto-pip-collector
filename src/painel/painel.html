@@ -225,6 +225,12 @@
           <div class="name">Rádio<small>novo morador atraído (raro/lendário)</small></div>
           <button class="sw" role="switch" aria-checked="true" aria-label="Rádio"><span class="on">ON</span><span class="off">OFF</span></button>
         </div>
+
+        <div class="row" data-grp="dwellers" data-key="curar">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9-9a4.5 4.5 0 0 1 9-2 4.5 4.5 0 0 1 9 2c-2 4.5-9 9-9 9z"/></svg>
+          <div class="name">Stimpak (cura)<small>usa Stimpak ao morador chegar em 50% de vida</small></div>
+          <button class="sw" role="switch" aria-checked="false" aria-label="Stimpak cura"><span class="on">ON</span><span class="off">OFF</span></button>
+        </div>
       </div>
     </div>
 
@@ -315,7 +321,7 @@
   const config = {
     ativo:true,
     recursos:{ energia:true, comida:true, agua:true, nuka:false, stimpak:true, radaway:true },
-    dwellers:{ levelup:true, treinamento:true, exploradores:true, gravidas:true, radio:true },
+    dwellers:{ levelup:true, treinamento:true, exploradores:true, gravidas:true, radio:true, curar:false },
     estranho:true,
     fabrica_quantum:false,
     passe_premium:false,
@@ -337,7 +343,7 @@
 `{
   <span class="k">"ativo"</span>: ${v(c.ativo)},
   <span class="k">"recursos"</span>: { <span class="k">"energia"</span>:${v(c.recursos.energia)}, <span class="k">"comida"</span>:${v(c.recursos.comida)}, <span class="k">"agua"</span>:${v(c.recursos.agua)}, <span class="k">"nuka"</span>:${v(c.recursos.nuka)}, <span class="k">"stimpak"</span>:${v(c.recursos.stimpak)}, <span class="k">"radaway"</span>:${v(c.recursos.radaway)} },
-  <span class="k">"dwellers"</span>: { <span class="k">"levelup"</span>:${v(c.dwellers.levelup)}, <span class="k">"treinamento"</span>:${v(c.dwellers.treinamento)}, <span class="k">"exploradores"</span>:${v(c.dwellers.exploradores)}, <span class="k">"gravidas"</span>:${v(c.dwellers.gravidas)}, <span class="k">"radio"</span>:${v(c.dwellers.radio)} },
+  <span class="k">"dwellers"</span>: { <span class="k">"levelup"</span>:${v(c.dwellers.levelup)}, <span class="k">"treinamento"</span>:${v(c.dwellers.treinamento)}, <span class="k">"exploradores"</span>:${v(c.dwellers.exploradores)}, <span class="k">"gravidas"</span>:${v(c.dwellers.gravidas)}, <span class="k">"radio"</span>:${v(c.dwellers.radio)}, <span class="k">"curar"</span>:${v(c.dwellers.curar)} },
   <span class="k">"estranho"</span>: ${v(c.estranho)}, <span class="k">"fabrica_quantum"</span>:${v(c.fabrica_quantum)}, <span class="k">"passe_premium"</span>:${v(c.passe_premium)}, <span class="k">"armarios"</span>:${v(c.armarios)}, <span class="k">"corpos"</span>:${v(c.corpos)}, <span class="k">"idioma"</span>:<span class="b1">"${c.idioma}"</span>,
   <span class="k">"parametros"</span>: { <span class="k">"intervalo_ms"</span>:${c.parametros.intervalo_ms}, <span class="k">"confianca"</span>:${c.parametros.confianca}, <span class="k">"hotkey_pausa"</span>:<span class="b1">"${c.parametros.hotkey_pausa}"</span> }
 }`;
@@ -368,7 +374,7 @@
   function applyConfig(c){
     Object.assign(config, c);
     config.recursos=Object.assign({energia:true,comida:true,agua:true,nuka:false,stimpak:true,radaway:true}, c.recursos||{});
-    config.dwellers=Object.assign({levelup:true,treinamento:true,exploradores:true,gravidas:true,radio:true}, c.dwellers||{});
+    config.dwellers=Object.assign({levelup:true,treinamento:true,exploradores:true,gravidas:true,radio:true,curar:false}, c.dwellers||{});
     config.parametros=Object.assign({intervalo_ms:800,confianca:0.85,hotkey_pausa:"F8"}, c.parametros||{});
     document.querySelectorAll('.row[data-grp]').forEach(row=>{
       const grp=row.dataset.grp, key=row.dataset.key, btn=row.querySelector('.sw');

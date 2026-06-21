@@ -1,11 +1,11 @@
 {
-  "mod_version": "v2.6.20",
+  "mod_version": "v2.6.21",
   "files": [
     {
       "name": "ColetorVault.dll",
       "dest": "plugins",
       "admin": true,
-      "sha256": "07f1324d69c3f5a079c0bd2fd245e36ea35ac2b5d1fe656692d3331c707ed6ae",
+      "sha256": "98727d7b531f807baf194bb45cd2b0c85a662d56c2e6d88cbb07ac777f712e4a",
       "url": "https://raw.githubusercontent.com/alternativasderenda-tech/auto-pip-collector/main/dist/ColetorVault.dll"
     },
     {
@@ -19,7 +19,7 @@
       "name": "AutoPipCollector.exe",
       "dest": "exe",
       "admin": false,
-      "sha256": "c63f49219a131a698171e54dfed9521be9f6afda10b3033eb882430faf774f7b",
+      "sha256": "c0bb39b9134e7064d867f2f7beb364337fafe44f0e8f5c10edbc5bf5e880d6c9",
       "url": "https://github.com/alternativasderenda-tech/auto-pip-collector/releases/latest/download/AutoPipCollector.exe"
     }
   ]
